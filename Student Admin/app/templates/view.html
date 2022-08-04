@@ -1,0 +1,40 @@
+<h1>Student Details</h1>
+<head>
+    <style>
+      h1 {
+        color: whitesmoke;
+    text-shadow: 3px 3px 5px #000000;
+  }
+    h1 {
+    text-decoration: underline;
+  }
+      body {
+        background-image: url("https://wallpapercave.com/wp/wp9283973.jpg");
+        background-size: cover;
+        min-height: 100%;
+        min-width: 100%;
+        background-position: center center;
+        height: 700px;
+      }
+    </style>
+  </head>
+{%if submitted==0%}
+<form action="/login/view" method="post">
+    <label for="name">student name:</label><br>
+    <input type="text"  name="name"><br><br>
+
+    <input type="submit" value="Submit" ><br></br>
+  </form>
+  {%else%}
+<ul>
+    {% for detail in detail %}
+    <li>Student Name: {{detail.student}}</li><br>
+    <li>Course: {{detail.course}}</li><br>
+    <li>Fee_info: {{detail.fee}}</li><br>
+    <li>Grade: {{detail.grades}}</li><br>
+    <li>City: {{detail.city}}</li><br>
+    <li>Contact_info: {{detail.contact}}</li>
+    {%endfor%}
+</ul>
+
+  {%endif%}
